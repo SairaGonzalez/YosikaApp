@@ -1,6 +1,8 @@
 import React from "react";
 import iconoMenu from "../assets/menu.png";
 import iconoConfiguracion from "../assets/setting.png";
+import imagenNovedades from "../assets/novedades.png";
+import imagenPromociones from "../assets/promociones.png";
 
 interface PropsPaginaInicio {
   alternarMenu: () => void;
@@ -20,6 +22,17 @@ const PaginaInicio: React.FC<PropsPaginaInicio> = ({ alternarMenu }) => {
         alt="Icono de Configuración"
         style={estilos.iconoConfiguracion}
       />
+      <h1>YOSIKA</h1>
+      <div>
+        <img src={imagenNovedades} alt="Novedades" />
+        <h2>NOVEDADES</h2>
+        <p>Descubre nuestras novedades</p>
+      </div>
+      <div>
+        <img src={imagenPromociones} alt="Promociones" />
+        <h2>Promociones</h2>
+        <p>Aprovecha nuestras ofertas y promociones especiales</p>
+      </div>
     </div>
   );
 };
