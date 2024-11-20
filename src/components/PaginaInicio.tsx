@@ -23,15 +23,21 @@ const PaginaInicio: React.FC<PropsPaginaInicio> = ({ alternarMenu }) => {
         style={estilos.iconoConfiguracion}
       />
       <h1 style={estilos.titulo}>YOSIKA</h1>
-      <div estilos.card>
+      <div style={estilos.card}>
         <img src={imagenNovedades} alt="Novedades" style={estilos.imagenCard} />
         <h2 style={estilos.tituloCard}>NOVEDADES</h2>
         <p style={estilos.descripcionCard}>Descubre nuestras novedades</p>
       </div>
       <div>
-        <img src={imagenPromociones} alt="Promociones" style={estilos.imagenCard} />
+        <img
+          src={imagenPromociones}
+          alt="Promociones"
+          style={estilos.imagenCard}
+        />
         <h2 style={estilos.tituloCard}>Promociones</h2>
-        <p style={estilos.descripcionCard}>Aprovecha nuestras ofertas y promociones especiales</p>
+        <p style={estilos.descripcionCard}>
+          Aprovecha nuestras ofertas y promociones especiales
+        </p>
       </div>
     </div>
   );
@@ -82,7 +88,7 @@ const estilos = {
     width: "90%",
     textAlign: "center" as "center",
   },
-  tituloCard: {
+  tituloCard: {
     fontFamily: "Lato",
     fontSize: "1.5rem",
     margin: "10px 0",
@@ -91,7 +97,7 @@ const estilos = {
     fontFamily: "Lato",
     fontSize: "1rem",
     color: "#555",
-  }
+  },
 };
 
 export default PaginaInicio;
