@@ -1,16 +1,41 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import menuCerrar from "../assets/menu.png";
 
-const Menu: React.FC = () => {
+interface MenuProps {
+  cerrarMenu: () => void;
+}
+
+const Menu: React.FC<MenuProps> = ({ cerrarMenu }) => {
+  const Paginas = [
+    { nombre: "Extensiones", path: "/extensiones" },
+    { nombre: "Faciales", path: "/faciales" },
+    { nombre: "Uñas", path: "/uñas" },
+  ];
   return (
     <div style={estilos.menu}>
-      {["Servicio", "Servicio", "Servicio", "Servicio", "Servicio"].map(
-        (item, index) => (
+      <div style={estilos.header}>
+        <img
+          src={menuCerrar}
+          alt="Cerrar Menú"
+          style={estilos.menuCerrar}
+          onClick={cerrarMenu}
+        />
+        <h1 style={estilos.titulo}>MENÚ</h1>
+      </div>
+      {Paginas.map((item, index) => (
+        <Link
+          key={index}
+          to={item.path}
+          style={estilos.link}
+          onClick={cerrarMenu}
+        >
           <div key={index} style={estilos.item}>
             <div style={estilos.triangulo}></div>
-            <span>{item}</span>
+            <span>{item.nombre}</span>
           </div>
-        )
-      )}
+        </Link>
+      ))}
     </div>
   );
 };
@@ -25,8 +50,25 @@ const estilos: { [key: string]: React.CSSProperties } = {
     display: "flex",
     flexDirection: "column" as "column",
     alignItems: "flex-start",
-    justifyContent: "center",
+    justifyContent: "flex-start",
     zIndex: 1,
+    marginLeft: "0",
+  },
+  menuCerrar: {
+    width: "43px",
+    height: "43px",
+    top: "10px",
+    left: "10px",
+    marginBottom: "20px",
+    position: "absolute" as "absolute",
+    zIndex: 2,
+  },
+  header: {
+    display: "flex" as "flex",
+    alignItems: "center" as "center",
+    gap: "10px",
+    justifyContent: "space-between",
+    width: "100%",
   },
   item: {
     display: "flex",
@@ -46,6 +88,18 @@ const estilos: { [key: string]: React.CSSProperties } = {
     borderLeft: "20px solid #D2D2D2",
     marginLeft: "20px",
     marginRight: "20px",
+  },
+  link: {
+    textDecoration: "none",
+    width: "100%",
+  },
+  titulo: {
+    fontSize: "25px",
+    fontWeight: "bold",
+    color: "#B08C8C",
+    fontFamily: "Lato",
+    textAlign: "center",
+    flex: 1,
   },
 };
 
